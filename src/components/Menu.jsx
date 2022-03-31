@@ -9,9 +9,7 @@ function Menu(){
         
         <Content>
             <Link to="/habitos"><p>Hábitos</p></Link>
-            <Link to="/historico"><p>Histórico</p></Link>
-        </Content>
-        <Bar style={{width: 100, height:50 }}>
+            <Bar style={{width: 90, /*height:80*/ }}>
                 <CircularProgressbar value={percentage}
                     text="hoje"
                     background
@@ -26,6 +24,9 @@ function Menu(){
                     trailColor: "transparent"
                 })} />
             </Bar>
+            <Link to="/historico"><p>Histórico</p></Link>
+        </Content>
+        
         </>
     )
 }
@@ -60,7 +61,6 @@ const Content = styled.div`
 
 const Bar = styled.div`
    position: relative;
-   top:0;
-   right: 0;
+   bottom:20px;
 `
 

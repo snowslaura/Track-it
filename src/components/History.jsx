@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { CircularProgressbar , buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-function Habits(){
+function History(){
     const percentage = 40;
     return( <>
         <Main >
@@ -38,7 +38,7 @@ function Habits(){
     )
 }
 
-export default Habits;
+export default History;
 
 const Top = styled.div`
     position: fixed;
@@ -107,5 +107,3 @@ const Bar = styled.div`
    position: relative;
    bottom:20px;
 `
-
-

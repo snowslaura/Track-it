@@ -7,7 +7,7 @@ import Login from "./Login"
 import SignUp from "./SignUp";
 import Habits from "./Habits";
 import Today from "./Today";
-import Memory from "./Memory"
+import History from "./History"
 
 import isLoadingContext from "../context/IsLoading";
 import UserDataContext from "../context/UserDataContext";
@@ -31,7 +31,7 @@ function App(){
                         <Route path="/cadastro" element={<SignUp />} />
                         <Route path="/habitos" element={<Habits />} />
                         <Route path="/hoje" element={<Today />} />
-                        <Route path="/historico" element={<Memory />} />
+                        <Route path="/historico" element={<History />} />
                     </Routes>
             </UserDataContext.Provider>        
             </isLoadingContext.Provider>    
