@@ -6,7 +6,7 @@ import {ThreeDots} from 'react-loader-spinner';
 import { useContext } from "react";
 import axios from "axios";
 
-import isLoadingContext from "../context/IsLoading";
+import isLoadingContext from "../context/IsLoadingContext";
 import UserDataContext from "../context/UserDataContext";
 
 function Login(){

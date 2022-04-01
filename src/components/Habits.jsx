@@ -1,29 +1,39 @@
 import styled from "styled-components"
-// import 'react-circular-progressbar/dist/styles.css';
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import axios from "axios"
-import UserDataContext from "../context/UserDataContext";
-import isLoadingContext from "../context/IsLoading";
 import {ThreeDots} from 'react-loader-spinner';
+
 import Header from "./Header"
 import Menu from "./Menu";
+import HabitCard from "./HabitCard"; 
+
+import UserDataContext from "../context/UserDataContext";
+import UserHabitsContext from "../context/UserHabitsContext"
 
 function Habits(){
 
     const[buttonNewHabit, setButtonNewHabit] = useState(false);
     const [habit, setHabit] = useState("");
     const[howOften, setHowOften] = useState([]);
-
+    const [isLoading, setisLoading] = useState(false)
     const {userData} = useContext(UserDataContext)
-    const {isLoading, setisLoading} = useContext(isLoadingContext)
+    const {userHabits, setUserHabits} = useContext(UserHabitsContext)
 
-    // setisLoading(false)
-    
-    
-    const promise = axios.get(`${process.env.REACT_APP_API_URL}/habits`)
-    promise.then(({data})=>{
+    useEffect (()=>{
+
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${userData.token}`
+            }
+        }
+
+        const promise = axios.get(`${process.env.REACT_APP_API_URL}/habits`, config)
+        promise.then(({data})=>{
+        setUserHabits(data)
         console.log(data)
-    })
+        });
+    }, [userData.token,setUserHabits]);
+    
 
     const days = [
         { id:0, name:"D", isSelected: false },
@@ -74,6 +84,13 @@ function Habits(){
         promise.then(response => { 
             setHabit("")
             setHowOften([])
+            setButtonNewHabit(false)
+            setisLoading(false)
+
+        })
+
+        promise.catch( e =>{
+            console.log(e)
         })
     }
 
@@ -100,14 +117,14 @@ function Habits(){
                     </Days>
                     <Navi>
                         <Cancel>Cancelar</Cancel>
-                        <Button>
-                        <ThreeDots
-                            height="40"
-                            width="40"
-                            color='#FFFFFF'
-                            ariaLabel='loading'
-                            background="#52B6FF"
-                        />
+                        <Button disabled>
+                            <ThreeDots
+                                height="40"
+                                width="40"
+                                color='#FFFFFF'
+                                ariaLabel='loading'
+                                background="#52B6FF"
+                            />
                         </Button>
                     </Navi>
                 </CreatHabit>
@@ -123,16 +140,21 @@ function Habits(){
                         }
                     </Days>
                     <Navi>
-                        <Cancel>Cancelar</Cancel>
+                        <Cancel onClick={() => setButtonNewHabit(!buttonNewHabit)}>Cancelar</Cancel>
                         <Button >Salvar</Button>
                     </Navi>
                 </CreatHabit>
             </form>}
 
+            {!userHabits?
             <NoHabit>
                 <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
-            </NoHabit>
-            
+            </NoHabit>:
+            userHabits.map((habit) =>{
+                return( <HabitCard name={habit.name} days={habit.days}/>
+                )
+            })
+            }
             <Menu />
         </Main>
         </>
@@ -151,6 +173,7 @@ const Main = styled.div`
 `
 const MyHabitsBar = styled.div`
     margin-top: 71px;
+    margin-bottom: 20px;
     display: flex;
     justify-content:space-between;
     align-items: center;
@@ -216,7 +239,6 @@ const Button = styled.button`
 `
 
 const CreatHabit = styled.div`
-    margin-top: 20px;
     width: 90vw;
     height: 180px;
     background: #FFFFFF;
@@ -229,12 +251,7 @@ const CreatHabit = styled.div`
             width: 100%;
             height: 45px;
             font-style: normal;
-            font-weight: 400;
-            font-size: 19.976px;
-            line-height: 25px;
-            color: #666666;
-            margin-bottom:6px;
-            padding: 10px;
+            font-weight: 400habitos
             ::placeholder {color:#DBDBDB};
         }
 

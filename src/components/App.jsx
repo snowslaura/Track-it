@@ -9,20 +9,22 @@ import Habits from "./Habits";
 import Today from "./Today";
 import History from "./History"
 
-import isLoadingContext from "../context/IsLoading";
+import isLoadingContext from "../context/IsLoadingContext";
 import UserDataContext from "../context/UserDataContext";
-
+import UserHabitsContext from "../context/UserHabitsContext";
 
 function App(){
 
     const [isLoading, setisLoading] = useState(false);
     const [userData, setUserData] = useState({ email:"", password:"" , name:"", image:"" , token:""})
+    const [userHabits, setUserHabits] = useState([])
    
 
     return(
         <BrowserRouter>
             <isLoadingContext.Provider value={{isLoading, setisLoading}} >
             <UserDataContext.Provider value={{userData, setUserData}}>
+                <UserHabitsContext.Provider value={{userHabits, setUserHabits}}>
                     <GlobalStyleComponent />
                     <Routes>
                         <Route path="/" element={<Login />} />
@@ -31,6 +33,7 @@ function App(){
                         <Route path="/hoje" element={<Today />} />
                         <Route path="/historico" element={<History />} />
                     </Routes>
+                </UserHabitsContext.Provider>    
             </UserDataContext.Provider>        
             </isLoadingContext.Provider>    
         </BrowserRouter>
