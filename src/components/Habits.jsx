@@ -16,6 +16,7 @@ function Habits(){
     const [habit, setHabit] = useState("");
     const[howOften, setHowOften] = useState([]);
     const [isLoading, setisLoading] = useState(false)
+    
     const {userData} = useContext(UserDataContext)
     const {userHabits, setUserHabits} = useContext(UserHabitsContext)
 
@@ -240,11 +241,11 @@ const Button = styled.button`
 
 const CreatHabit = styled.div`
     width: 90vw;
-    height: 180px;
+    height: 170px;
     background: #FFFFFF;
     border-radius: 5px;
     padding:17px;
-
+     
         input{
             border: 1px solid #D5D5D5;
             border-radius: 5px;
@@ -252,12 +253,16 @@ const CreatHabit = styled.div`
             height: 45px;
             font-style: normal;
             font-weight: 400;
+            font-weight: 400;
+            font-size: 19.976px;
+            margin-bottom: 10px;
+            padding: 10px;
             ::placeholder {color:#DBDBDB};
         }
 `
 
 const Navi = styled.div`
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -272,7 +277,6 @@ const Days = styled.div`
 `
 
 const SpanDay = styled.span`
-    
     width: 30px;
     height: 30px;
     border: 1px solid #D5D5D5;
@@ -289,7 +293,6 @@ const SpanDay = styled.span`
     line-height: 25px;
     color: ${ props => props.selected ? "#FFFFFF" : "#DBDBDB"};
     background-color: ${ props => props.selected ? "#CFCFCF" : "#FFFFFF"};
-    
 `
 
 const NoHabit = styled.div`

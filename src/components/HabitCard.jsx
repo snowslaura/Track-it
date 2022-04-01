@@ -1,6 +1,16 @@
 import styled from "styled-components";
 import {BsTrash} from "react-icons/bs"
 
+const daysArray = [
+    { id:0, name:"D" },
+    { id:1, name:"S" },
+    { id:2, name:"T" },
+    { id:3, name:"Q" },
+    { id:4, name:"Q" },
+    { id:5, name:"S" },
+    { id:6, name:"S" }
+]
+
 
 function HabitCard(props){
 
@@ -15,10 +25,12 @@ function HabitCard(props){
                 <BsTrash />
             </Top>
             <Days>
-            {days.map((day)=>{
-
-                            return(<SpanDay >{day}</SpanDay>)
-                        })
+            {daysArray.map((day)=>{ return(
+                days.includes(day.id)?
+                <SpanDay color={false}  key={day.id}>{day.name}</SpanDay>:
+                <SpanDay color={true} key={day.id}>{day.name}</SpanDay>
+            )
+            })
             }
             </Days>
         </Content>
@@ -61,6 +73,7 @@ const Days = styled.div`
 `
 
 const SpanDay = styled.span`
+    margin-top: 8px;
     width: 30px;
     height: 30px;
     border: 1px solid #D5D5D5;
@@ -75,7 +88,7 @@ const SpanDay = styled.span`
     font-weight: 400;
     font-size: 19.976px;
     line-height: 25px;
-    color: ${ props => props.selected ? "#FFFFFF" : "#DBDBDB"};
-    background-color: ${ props => props.selected ? "#CFCFCF" : "#FFFFFF"};
+    color: ${ props => props.color ? "#DBDBDB" : "#FFF"};
+    background-color: ${ props => props.color ? "#FFF" : "#CFCFCF"};
     
 `
