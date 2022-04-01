@@ -146,7 +146,7 @@ function Habits(){
                 </CreatHabit>
             </form>}
 
-            {!userHabits?
+            {userHabits.length===0?
             <NoHabit>
                 <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
             </NoHabit>:
