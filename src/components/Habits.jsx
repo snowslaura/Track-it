@@ -151,7 +151,7 @@ function Habits(){
                 <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
             </NoHabit>:
             userHabits.map((habit) =>{
-                return( <HabitCard name={habit.name} days={habit.days}/>
+                return( <HabitCard key={habit.id} name={habit.name} days={habit.days}/>
                 )
             })
             }
@@ -251,11 +251,9 @@ const CreatHabit = styled.div`
             width: 100%;
             height: 45px;
             font-style: normal;
-            font-weight: 400habitos
+            font-weight: 400;
             ::placeholder {color:#DBDBDB};
         }
-
-       
 `
 
 const Navi = styled.div`
