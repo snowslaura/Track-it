@@ -15,8 +15,6 @@ import UserDataContext from "../context/UserDataContext";
 
 function App(){
 
-    
-
     const [isLoading, setisLoading] = useState(false);
     const [userData, setUserData] = useState({ email:"", password:"" , name:"", image:"" , token:""})
    

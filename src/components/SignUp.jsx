@@ -2,17 +2,16 @@ import logoImagem from "./../assets/img/logo-trackit.png"
 import logo from "./../assets/img/TrackIt.png"
 import { Link , useNavigate} from "react-router-dom";
 import styled from 'styled-components'
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import axios from "axios"
 import {ThreeDots} from 'react-loader-spinner'
-import isLoadingContext from "../context/IsLoading";
 import UserDataContext from "../context/UserDataContext";
 
 
 function SignUp(){
 
  
-    const {isLoading, setisLoading} = useContext(isLoadingContext)
+    const [isLoading, setisLoading] = useState(false)
     const{userData, setUserData} = useContext(UserDataContext)
 
     const navigate = useNavigate()

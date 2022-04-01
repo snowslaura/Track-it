@@ -8,24 +8,26 @@ function Menu(){
     return( <>
         
         <Content>
-            <Link to="/habitos"><p>Hábitos</p></Link>
-            <Bar style={{width: 90, /*height:80*/ }}>
-                <CircularProgressbar value={percentage}
-                    text="hoje"
-                    background
-                    backgroundPadding={6}
-                    valueStart={0}
-                    valueEnd={percentage}
-                    duration={1.4}
-                    styles={buildStyles({
-                    backgroundColor: "#52B6FF",
-                    textColor: "#fff",
-                    pathColor: "#fff",
-                    trailColor: "transparent"
-                })} />
-            </Bar>
-            <Link to="/historico"><p>Histórico</p></Link>
-        </Content>
+                <Link to="/habitos"><p>Hábitos</p></Link>
+                <Link to="/hoje">
+                    <Bar style={{width: 90, /*height:80*/ }}>
+                        <CircularProgressbar value={percentage}
+                            text="hoje"
+                            background
+                            backgroundPadding={6}
+                            valueStart={0}
+                            valueEnd={percentage}
+                            duration={1.4}
+                            styles={buildStyles({
+                            backgroundColor: "#52B6FF",
+                            textColor: "#fff",
+                            pathColor: "#fff",
+                            trailColor: "transparent"
+                        })} />
+                    </Bar>
+                </Link>
+                <Link to="/historico"><p>Histórico</p></Link>
+            </Content>
         
         </>
     )

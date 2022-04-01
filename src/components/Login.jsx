@@ -28,15 +28,15 @@ function Login(){
         const URL =`${process.env.REACT_APP_API_URL}/auth/login`
         const promise = axios.post(URL, body)
         promise.then(({data}) =>{
-        setUserData({...userData, token: data.token})
+        setUserData({...userData, email:data.email, password:data.password , name:data.name, image:data.image , token: data.token })
+            console.log(data)
             navigate("/hoje")
             setisLoading(false)
         })
         promise.catch(({response}) => {
             console.log(response.statusText)
             setisLoading(false)
-            setUserData({...userData,email: ""})
-            setUserData({...userData, password:""})
+            setUserData({...userData,email:"", password:"" , name:"", image:"" , token:""})
             alert("Login ou senha inválidos")
         })
             

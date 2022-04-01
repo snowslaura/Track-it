@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-function Header(){
+function Header({src}){
 
     return(
         <Top>
             <LogoWritten>TrackIt</LogoWritten>
-            <ProfileImage />
+            <ProfileImage src={src} />
         </Top>
     )
 }

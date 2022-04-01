@@ -1,12 +1,17 @@
 import Header from "./Header";
 import Menu from "./Menu";
 import styled from "styled-components";
+import { useContext } from "react";
+import UserDataContext from "../context/UserDataContext";
 
 function Today(){
+
+    const {userData} = useContext(UserDataContext)
+
     return(
         <>
         <Content>
-            <Header />
+            <Header src={userData.image}/>
             <Menu />
         </Content>
         </>
