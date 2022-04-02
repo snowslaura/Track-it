@@ -53,18 +53,18 @@ function SignUp(){
             <LogoImage src={logo} alt="logo-trackit"/>
                 {isLoading?
                 <Form onSubmit={handleSubmit}>
-                    <input type="email" id="email" value={userData.email} disabled required onChange={e => setUserData({...userData,email: e.target.value})} placeholder="email"></input>
-                    <input type="password" id="password" value={userData.password} disabled required onChange={e => setUserData({...userData, password:e.target.value})} placeholder="senha"></input>
-                    <input type="text" id="name"  value={userData.name} disabled required onChange={e =>setUserData({ ...userData, name: e.target.value})} placeholder="nome"></input>
-                    <input type="url" id="image"  value={userData.image} disabled required onChange={e =>setUserData({...userData, image: e.target.value})}  placeholder="foto"></input>
-                    <button isLoading={isLoading} disabled>
+                    <Input type="email" id="email" value={userData.email} disabled required onChange={e => setUserData({...userData,email: e.target.value})} placeholder="email"></Input>
+                    <Input type="password" id="password" value={userData.password} disabled required onChange={e => setUserData({...userData, password:e.target.value})} placeholder="senha"></Input>
+                    <Input type="text" id="name"  value={userData.name} disabled required onChange={e =>setUserData({ ...userData, name: e.target.value})} placeholder="nome"></Input>
+                    <Input type="url" id="image"  value={userData.image} disabled required onChange={e =>setUserData({...userData, image: e.target.value})}  placeholder="foto"></Input>
+                    <Button isLoading={isLoading} disabled>
                         <ThreeDots
                             height="60"
                             width="60"
                             color='#FFFFFF'
                             ariaLabel='loading'
                         />
-                    </button>
+                    </Button>
                 </Form>
                 :<Form onSubmit={handleSubmit}>
                     <input type="email" id="email" value={userData.email} required onChange={e => setUserData({...userData,email: e.target.value})} placeholder="email"></input>
@@ -137,6 +137,44 @@ const Form = styled.form`
     }
     
 `
+
+const Input = styled.input`
+    border: 1px solid #D5D5D5;
+    border-radius: 5px;
+    width: 303px;
+    height: 45px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 19.976px;
+    line-height: 25px;
+    color: #666666;
+    margin-bottom:6px;
+    padding: 10px;
+    background-color: ${props => props.disabled ? "#F2F2F2":"#FFFFFF"};
+    
+    ::placeholder {
+        color: ${props => props.disabled ? "#AFAFAF":"#DBDBDB"}
+    }
+
+`
+
+const Button = styled.button`
+    border: none;
+        width: 303px;
+        height: 45px;
+        background: #52B6FF;
+        border-radius: 4.63636px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20.976px;
+        line-height: 26px;
+        text-align: center;
+        color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity:${props => props.disabled ? "0.5" : ""};  
+`        
 
 const Enter = styled.p`
     margin-top:25px;

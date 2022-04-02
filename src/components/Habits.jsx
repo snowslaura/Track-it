@@ -17,11 +17,13 @@ function Habits(){
     const[howOften, setHowOften] = useState([]);
     const [isLoading, setisLoading] = useState(false)
     
+    
     const {userData} = useContext(UserDataContext)
     const {userHabits, setUserHabits} = useContext(UserHabitsContext)
 
-    useEffect (()=>{
+    useEffect(() => fetchHabits(), []);
 
+    function fetchHabits(){
         const config = {
             headers: {
                 "Authorization": `Bearer ${userData.token}`
@@ -31,9 +33,10 @@ function Habits(){
         const promise = axios.get(`${process.env.REACT_APP_API_URL}/habits`, config)
         promise.then(({data})=>{
         setUserHabits(data)
-        console.log(data)
-        });
-    }, [userData.token,setUserHabits]);
+        })
+
+        promise.catch( (e)=> console.log(e))
+    }
     
 
     const days = [
@@ -46,7 +49,7 @@ function Habits(){
         { id:6, name:"S", isSelected: false }
     ]
 
-    const [selectedDay, setSelectedDay] = useState(days);
+    const [selectedDay, setSelectedDay] = useState(days);    
 
     function selectDay(id){
         const selectedDays = selectedDay.map( (day) => {
@@ -62,13 +65,17 @@ function Habits(){
         setHowOften([...selectedDaysId])
         
     }
-    
+
     function handleSubmit(event){
         event.preventDefault();
-        console.log(habit)
-        console.log(howOften)
-        setisLoading(true)
 
+        if(howOften.length<1){
+        alert("Escolha ao menos um dia da semana para seu hábito")
+        return
+        }
+        
+        setisLoading(true)
+        
         const body = {
             name: habit,
             days: howOften,
@@ -85,12 +92,14 @@ function Habits(){
         promise.then(response => { 
             setHabit("")
             setHowOften([])
+            setSelectedDay(days)
             setButtonNewHabit(false)
             setisLoading(false)
-
+            fetchHabits()
+            
         })
 
-        promise.catch( e =>{
+        promise.catch( e => {
             console.log(e)
         })
     }
@@ -108,7 +117,7 @@ function Habits(){
             isLoading?
             <form onSubmit={handleSubmit}>            
                 <CreatHabit>
-                    <input type="text" value={habit} id="nameHabit" disabled onChange={e => setHabit(e.target.value)} required placeholder="nome do hábito"></input>
+                    <Input type="text" value={habit} id="nameHabit"  disabled onChange={e => setHabit(e.target.value)} required placeholder="nome do hábito"></Input>
                     <Days > 
                         {selectedDay.map((day)=>{
                             return(<SpanDay selected={day.isSelected} key={day.id} onClick={() => selectDay(day.id)}>{day.name}</SpanDay>
@@ -132,7 +141,7 @@ function Habits(){
             </form> :
             <form onSubmit={handleSubmit}>            
                 <CreatHabit>
-                    <input type="text" value={habit} id="nameHabit" onChange={e => setHabit(e.target.value)} required placeholder="nome do hábito"></input>
+                    <input type="text" value={habit} id="nameHabit" maxLength="20" onChange={e => setHabit(e.target.value)} required placeholder="nome do hábito"></input>
                     <Days > 
                         {selectedDay.map((day)=>{
                             return(<SpanDay selected={day.isSelected} key={day.id} onClick={() => selectDay(day.id)}>{day.name}</SpanDay>
@@ -152,7 +161,7 @@ function Habits(){
                 <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
             </NoHabit>:
             userHabits.map((habit) =>{
-                return( <HabitCard key={habit.id} name={habit.name} days={habit.days}/>
+                return( <HabitCard fetchHabits={fetchHabits} key={habit.id} id={habit.id} name={habit.name} days={habit.days}/>
                 )
             })
             }
@@ -237,6 +246,7 @@ const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity:${props => props.disabled ? "0.5" : ""};  
 `
 
 const CreatHabit = styled.div`
@@ -258,6 +268,23 @@ const CreatHabit = styled.div`
             margin-bottom: 10px;
             padding: 10px;
             ::placeholder {color:#DBDBDB};
+        }
+`
+
+const Input = styled.input`
+        border: 1px solid #D5D5D5;
+        border-radius: 5px;
+        width: 100%;
+        height: 45px;
+        font-style: normal;
+        font-weight: 400;
+        font-weight: 400;
+        font-size: 19.976px;
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: ${props => props.disabled ? "#F2F2F2":"#FFFFFF"};
+        ::placeholder {
+            color: ${props => props.disabled ? "#AFAFAF":"#DBDBDB"}
         }
 `
 

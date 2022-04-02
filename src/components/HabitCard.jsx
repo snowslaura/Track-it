@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import {BsTrash} from "react-icons/bs"
+import {BsTrash} from "react-icons/bs";
+import axios from "axios"
+import { useContext } from "react";
+
+import UserDataContext from "../context/UserDataContext";
+
+
 
 const daysArray = [
     { id:0, name:"D" },
@@ -13,8 +19,26 @@ const daysArray = [
 
 
 function HabitCard(props){
+    
+    const {name, days, id , fetchHabits} = props
 
-    const {name, days} = props
+    const {userData} = useContext(UserDataContext)
+
+    function handleDelet(){
+
+        // confirm("Tem certeza que deseja excluir ?")
+
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${userData.token}`
+            }
+        }
+
+        const promise = axios.delete(`${process.env.REACT_APP_API_URL}/habits/${id}`, config)
+        promise.then((response)=>{fetchHabits()})
+        promise.catch(e => console.log(e))
+
+    }
 
     return(
         <Content>
@@ -22,16 +46,17 @@ function HabitCard(props){
                 <Description>
                     {name}
                 </Description>
-                <BsTrash />
+                <BsTrash onClick={() => handleDelet()}/>
             </Top>
             <Days>
-            {daysArray.map((day)=>{ return(
-                days.includes(day.id)?
-                <SpanDay color={false}  key={day.id}>{day.name}</SpanDay>:
-                <SpanDay color={true} key={day.id}>{day.name}</SpanDay>
-            )
-            })
-            }
+                {daysArray.map((day)=>{ 
+                    return(
+                        days.includes(day.id)?
+                        <SpanDay  key={day.id}>{day.name}</SpanDay>:
+                        <SpanDay color key={day.id}>{day.name}</SpanDay>
+                    )
+                })
+                }
             </Days>
         </Content>
     )
@@ -41,7 +66,7 @@ export default HabitCard;
 
 const Content = styled.div`
     width: 340px;
-    height: 91px;
+    min-height: 91px;
     background: #FFFFFF;
     border-radius: 5px;
     margin-top: 8px;
@@ -62,6 +87,8 @@ const Description = styled.p`
     font-size: 19.976px;
     line-height: 25px;
     color: #666666;
+    width: 90%;
+    word-wrap: break-word;
 `
 
 
