@@ -18,6 +18,7 @@ const daysArray = [
 ]
 
 
+
 function HabitCard(props){
     
     const {name, days, id , fetchHabits} = props
@@ -26,7 +27,7 @@ function HabitCard(props){
 
     function handleDelet(){
 
-        // confirm("Tem certeza que deseja excluir ?")
+        window.confirm("Tem certeza que deseja excluir ?")
 
         const config = {
             headers: {
