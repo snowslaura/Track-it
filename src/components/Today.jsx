@@ -1,6 +1,9 @@
 import Header from "./Header";
 import Menu from "./Menu";
 import TodaysCard from "./TodaysCard";
+import dayjs from "dayjs";
+import 'dayjs/locale/pt-br'
+import updateLocale from 'dayjs/plugin/updateLocale'
 
 import styled from "styled-components";
 import { useContext, useEffect , useState } from "react";
@@ -36,7 +39,12 @@ function Today(){
             setPercentage(ActualPercentage)
         })
         promise.catch ((e)=> console.log(e))
-    }  
+    } 
+    dayjs.extend(updateLocale)
+        dayjs.updateLocale('pt-br', {
+            weekdays: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+        })
+    
     
     return(
         <>
@@ -44,13 +52,12 @@ function Today(){
             <Header src={userData.image}/>       
             
             <CurrentDay >
-                Sábado, 02/04    
+                {dayjs().locale('pt-br').format('dddd, DD/MM')}   
             </CurrentDay >
 
             {HabitsStatus.includes(true)?
             <Percentage>{percentage}% dos hábitos concluídos</Percentage>:
-            <NoHabit>Nenhum hábito concluído ainda</NoHabit>
-            }
+            <NoHabit>Nenhum hábito concluído ainda</NoHabit>}
 
             <Habits>
                 {todaysHabits.map ((habit) =>{
