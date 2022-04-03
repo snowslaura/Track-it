@@ -1,18 +1,15 @@
 import styled from "styled-components"
 import 'react-circular-progressbar/dist/styles.css';
-import { useContext } from "react";
-import UserDataContext from "../context/UserDataContext";
 import Header from "./Header";
 import Menu from "./Menu";
 
 function History(){
 
-    const {userData} = useContext(UserDataContext)
 
     
     return( <>
         <Main >
-            <Header src={userData.image}/>
+            <Header />
            
             <Title >
                 <p>Histórico</p>

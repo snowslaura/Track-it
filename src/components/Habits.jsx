@@ -21,12 +21,16 @@ function Habits(){
     const {userData} = useContext(UserDataContext)
     const {userHabits, setUserHabits} = useContext(UserHabitsContext)
 
+    const userDataLocalStorage = localStorage.getItem("userData")
+    const unserializedData = JSON.parse(userDataLocalStorage)
+    const tokenStorage = unserializedData.token
+
     useEffect(() => fetchHabits(), []);
 
     function fetchHabits(){
         const config = {
             headers: {
-                "Authorization": `Bearer ${userData.token}`
+                "Authorization": `Bearer ${tokenStorage}`
             }
         }
 
@@ -106,7 +110,7 @@ function Habits(){
 
     return( <>
         <Main >
-            <Header src={userData.image}/>
+            <Header />
 
             <MyHabitsBar>
                 <p>Meus hábitos</p>

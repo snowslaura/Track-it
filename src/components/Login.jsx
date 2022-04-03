@@ -18,6 +18,7 @@ function Login(){
 
     function handleLogin(event){
         event.preventDefault();
+               
         setisLoading(true)
 
         const body = {
@@ -28,7 +29,9 @@ function Login(){
         const URL =`${process.env.REACT_APP_API_URL}/auth/login`
         const promise = axios.post(URL, body)
         promise.then(({data}) =>{
-        setUserData({...userData, email:data.email, password:data.password , name:data.name, image:data.image , token: data.token })
+            setUserData({...userData, email:data.email, password:data.password , name:data.name, image:data.image , token: data.token })
+            const serializedDataString = JSON.stringify({token: data.token, image:data.image})
+            localStorage.setItem("userData", serializedDataString)
             navigate("/hoje")
             setisLoading(false)
         })

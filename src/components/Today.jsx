@@ -9,7 +9,6 @@ import styled from "styled-components";
 import { useContext, useEffect , useState } from "react";
 import axios from "axios"
 
-import UserDataContext from "../context/UserDataContext";
 import PercentageContext from "../context/PercentageContext";
 
 function Today(){
@@ -17,15 +16,18 @@ function Today(){
     const [todaysHabits, setTodaysHabits] = useState([])
     const [HabitsStatus, setHabitsStatus] = useState([])
 
-    const {userData} = useContext(UserDataContext)
     const {percentage, setPercentage} = useContext(PercentageContext)
+
+    const userDataLocalStorage = localStorage.getItem("userData")
+    const unserializedData = JSON.parse(userDataLocalStorage)
+    const tokenStorage = unserializedData.token
 
     useEffect(() => fetchTodaysHabits(), [])    
 
     function fetchTodaysHabits(){
         const config = {
             headers: {
-                "Authorization": `Bearer ${userData.token}`
+                "Authorization": `Bearer ${tokenStorage}`
             }
         }
 
@@ -49,7 +51,7 @@ function Today(){
     return(
         <>
         <Content>
-            <Header src={userData.image}/>       
+            <Header />       
             
             <CurrentDay >
                 {dayjs().locale('pt-br').format('dddd, DD/MM')}   

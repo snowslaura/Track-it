@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-function Header({src}){
+function Header(){
+    
+    const userData = localStorage.getItem("userData")
+    const unserializedData = JSON.parse(userData)
+    const src = unserializedData.image
 
     return(
         <Top>
