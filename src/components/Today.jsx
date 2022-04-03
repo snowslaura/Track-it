@@ -38,23 +38,20 @@ function Today(){
         promise.catch ((e)=> console.log(e))
     }  
     
-   
-  
-   
-        
-    
-
     return(
         <>
         <Content>
-            <Header src={userData.image}/>
+            <Header src={userData.image}/>       
+            
             <CurrentDay >
                 Sábado, 02/04    
             </CurrentDay >
+
             {HabitsStatus.includes(true)?
             <Percentage>{percentage}% dos hábitos concluídos</Percentage>:
             <NoHabit>Nenhum hábito concluído ainda</NoHabit>
             }
+
             <Habits>
                 {todaysHabits.map ((habit) =>{
                     return (<TodaysCard key={habit.id}
@@ -67,9 +64,9 @@ function Today(){
                         />
                         )})
                 }
-            </Habits>
-            <Menu />
+            </Habits>            
         </Content>
+        <Menu />
         </>
     )
 }
@@ -77,19 +74,24 @@ function Today(){
 export default Today;
 
 const Content = styled.div`
-    margin-top:75px;
     background-color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-   
+    overflow-y: scroll;
 `
 
-const Habits = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+const CurrentDay = styled.p`
+    margin-top: 91px;
+    width: 100vw;
+    padding-left: 4vw;
+    font-family: 'Lexend Deca';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.976px;
+    line-height: 29px;
+    color: #126BA5;
 `
 
 const NoHabit = styled.p`
@@ -98,31 +100,31 @@ const NoHabit = styled.p`
     font-weight: 400;
     font-size: 17.976px;
     line-height: 22px;
-    padding-left: 17px;
+    padding-left: 4vw;
     color: #BABABA;
     margin-bottom: 20px;
 `
 
 const Percentage = styled.p`
+    display: flex;
+    justify-content: flex-start;
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 400;
     font-size: 17.976px;
     line-height: 22px;
+    padding-left: 4vw;
     color: #8FC549;
-    padding-left: 17px;
     margin-bottom: 20px;
 `
 
-const CurrentDay = styled.p`
-    margin-top:20px;
-    width: 100vw;
-    padding-left: 17px;
-    font-family: 'Lexend Deca';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 22.976px;
-    line-height: 29px;
-    color: #126BA5;
+const Habits = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
+
+
+
+
 
