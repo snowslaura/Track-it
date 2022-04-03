@@ -63,7 +63,7 @@ function TodaysCard(props){
 export default TodaysCard;
 
 const Content = styled.div`
-    width: 92vw;
+    width: 90vw;
     min-height: 91px;
     background: #FFFFFF;
     border-radius: 5px;

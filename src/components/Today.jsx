@@ -92,7 +92,7 @@ const Content = styled.div`
 const CurrentDay = styled.p`
     margin-top: 91px;
     width: 100vw;
-    padding-left: 4vw;
+    padding-left: 5vw;
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 400;
@@ -107,7 +107,7 @@ const NoHabit = styled.p`
     font-weight: 400;
     font-size: 17.976px;
     line-height: 22px;
-    padding-left: 4vw;
+    padding-left: 5vw;
     color: #BABABA;
     margin-bottom: 20px;
 `
@@ -120,7 +120,7 @@ const Percentage = styled.p`
     font-weight: 400;
     font-size: 17.976px;
     line-height: 22px;
-    padding-left: 4vw;
+    padding-left: 5vw;
     color: #8FC549;
     margin-bottom: 20px;
 `

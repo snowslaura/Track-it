@@ -66,7 +66,7 @@ function HabitCard(props){
 export default HabitCard;
 
 const Content = styled.div`
-    width: 340px;
+    width: 90vw;
     min-height: 91px;
     background: #FFFFFF;
     border-radius: 5px;
