@@ -217,6 +217,7 @@ const MyHabitsBar = styled.div`
         align-items:center;
         justify-content: center;
         padding-bottom:5px;
+        cursor: pointer;
     }
 `
 
@@ -229,6 +230,7 @@ const Cancel = styled.p`
     text-align: center;
     color: #52B6FF;
     margin-right: 23px;
+    cursor: pointer;
 `
 
 const Button = styled.button`
@@ -247,6 +249,7 @@ const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     opacity:${props => props.disabled ? "0.5" : ""};  
 `
 
@@ -319,6 +322,7 @@ const SpanDay = styled.span`
     font-weight: 400;
     font-size: 19.976px;
     line-height: 25px;
+    cursor: pointer;
     color: ${ props => props.selected ? "#FFFFFF" : "#DBDBDB"};
     background-color: ${ props => props.selected ? "#CFCFCF" : "#FFFFFF"};
 `

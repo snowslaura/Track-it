@@ -83,7 +83,8 @@ const Icone = styled.div`
     color:${props => props.done? "#8FC549":"#EBEBEB"};
     font-size: 70px;
     display: flex;
-    justify-content: center;    
+    justify-content: center;
+    cursor: pointer;    
 `
 const DaysSequecies = styled.div`
     font-family: 'Lexend Deca';

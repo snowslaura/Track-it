@@ -42,7 +42,7 @@ function HabitCard(props){
                 <Description>
                     {name}
                 </Description>
-                <BsTrash onClick={() => handleDelet()}/>
+                <Icone><BsTrash onClick={() => handleDelet()}/></Icone>
             </Top>
             <Days>
                 {daysArray.map((day)=>{ 
@@ -73,6 +73,9 @@ const Top = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+`
+const Icone = styled.div`
+    cursor: pointer;
 `
 const Description = styled.p`
     font-family: 'Lexend Deca';
