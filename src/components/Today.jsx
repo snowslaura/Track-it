@@ -35,7 +35,7 @@ function Today(){
         promise.then( ({data}) =>{
             const selectStatus = data.map((habit) => habit.done)
             const done = selectStatus.filter((status) => status === true)
-            const ActualPercentage = ((done.length/selectStatus.length)*100).toFixed(0)
+            const ActualPercentage = ((done.length/(selectStatus.length || 1))*100).toFixed(0)
             setTodaysHabits(data)
             setHabitsStatus(selectStatus)        
             setPercentage(ActualPercentage)

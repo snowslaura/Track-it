@@ -31,7 +31,7 @@ const Main = styled.div`
 const Title = styled.div`
     margin-top:95px;
     width: 100vw;
-    padding-left: 17px;
+    padding-left: 5vw;
     font-family: 'Lexend Deca';
     font-style: normal;
     font-weight: 400;
@@ -45,7 +45,7 @@ const Subtitle = styled.p`
     font-weight: 400;
     font-size: 17.976px;
     line-height: 22px;
-    padding-left: 17px;
+    padding-left: 5vw;
     color: #BABABA;
     margin-bottom: 20px;
     margin-top: 18px;

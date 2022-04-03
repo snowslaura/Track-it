@@ -187,8 +187,8 @@ const MyHabitsBar = styled.div`
     display: flex;
     justify-content:space-between;
     align-items: center;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 5vw;
+    padding-right: 5vw;
     width: 100vw;
     font-family: 'Lexend Deca';
     font-style: normal;
@@ -216,6 +216,7 @@ const MyHabitsBar = styled.div`
         display: flex;
         align-items:center;
         justify-content: center;
+        padding-bottom:5px;
     }
 `
 
@@ -325,7 +326,7 @@ const SpanDay = styled.span`
 const NoHabit = styled.div`
     margin-top: 20px;
     width: 100vw;
-    padding-left: 18px;
+    padding-left: 5vw;
     padding-right: 18px;
     height: 74px;
     font-family: 'Lexend Deca';
