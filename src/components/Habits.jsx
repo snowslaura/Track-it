@@ -33,15 +33,13 @@ function Habits(){
                 "Authorization": `Bearer ${tokenStorage}`
             }
         }
-
         const promise = axios.get(`${process.env.REACT_APP_API_URL}/habits`, config)
         promise.then(({data})=>{
         setUserHabits(data)
         })
 
         promise.catch( (e)=> console.log(e))
-    }
-    
+    }    
 
     const days = [
         { id:0, name:"D", isSelected: false },
@@ -66,8 +64,7 @@ function Habits(){
 
         const daysData = selectedDay.filter((day) => day.isSelected === true)
         const selectedDaysId = daysData.map((day) => day.id)
-        setHowOften([...selectedDaysId])
-        
+        setHowOften([...selectedDaysId])        
     }
 
     function handleSubmit(event){
@@ -111,12 +108,10 @@ function Habits(){
     return( <>
         <Main >
             <Header />
-
             <MyHabitsBar>
                 <p>Meus hábitos</p>
                 <button onClick={() => setButtonNewHabit(!buttonNewHabit)}>+</button>
             </MyHabitsBar>
-
             {!buttonNewHabit?"":
             isLoading?
             <form onSubmit={handleSubmit}>            

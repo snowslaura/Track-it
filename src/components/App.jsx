@@ -25,23 +25,22 @@ function App(){
     return(
         <BrowserRouter>
             <isLoadingContext.Provider value={{isLoading, setisLoading}} >
-            <UserDataContext.Provider value={{userData, setUserData}}>
-                <UserHabitsContext.Provider value={{userHabits, setUserHabits}}>
-                    <PercentageContext.Provider value={{percentage, setPercentage}}>
-                        <GlobalStyleComponent />
-                        <Routes>
-                            <Route path="/" element={<Login />} />
-                            <Route path="/cadastro" element={<SignUp />} />
-                            <Route path="/habitos" element={<Habits />} />
-                            <Route path="/hoje" element={<Today />} />
-                            <Route path="/historico" element={<History />} />
-                        </Routes>
-                    </PercentageContext.Provider>
-                </UserHabitsContext.Provider>    
-            </UserDataContext.Provider>        
+                <UserDataContext.Provider value={{userData, setUserData}}>
+                    <UserHabitsContext.Provider value={{userHabits, setUserHabits}}>
+                        <PercentageContext.Provider value={{percentage, setPercentage}}>
+                            <GlobalStyleComponent />
+                            <Routes>
+                                <Route path="/" element={<Login />} />
+                                <Route path="/cadastro" element={<SignUp />} />
+                                <Route path="/habitos" element={<Habits />} />
+                                <Route path="/hoje" element={<Today />} />
+                                <Route path="/historico" element={<History />} />
+                            </Routes>
+                        </PercentageContext.Provider>
+                    </UserHabitsContext.Provider>    
+                </UserDataContext.Provider>        
             </isLoadingContext.Provider>    
-        </BrowserRouter>
-       
+        </BrowserRouter>       
     )
 }
 

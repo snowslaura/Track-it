@@ -90,7 +90,6 @@ const Content = styled.div`
     height: 100vh;
     overflow-y: scroll;
 `
-
 const CurrentDay = styled.p`
     margin-top: 91px;
     width: 100vw;
@@ -102,7 +101,6 @@ const CurrentDay = styled.p`
     line-height: 29px;
     color: #126BA5;
 `
-
 const NoHabit = styled.p`
     font-family: 'Lexend Deca';
     font-style: normal;
@@ -113,7 +111,6 @@ const NoHabit = styled.p`
     color: #BABABA;
     margin-bottom: 20px;
 `
-
 const Percentage = styled.p`
     display: flex;
     justify-content: flex-start;
@@ -126,7 +123,6 @@ const Percentage = styled.p`
     color: #8FC549;
     margin-bottom: 20px;
 `
-
 const Habits = styled.div`
     display: flex;
     flex-direction: column;

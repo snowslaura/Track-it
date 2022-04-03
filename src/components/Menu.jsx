@@ -10,9 +10,8 @@ function Menu(){
 
     const {percentage} = useContext(PercentageContext)
 
-    return( <>
-        
-        <Content>
+    return( <>        
+            <Content>
                 <Link to="/habitos"><p>Hábitos</p></Link>
                 <Link to="/hoje">
                     <Bar style={{width: 90 }}>
@@ -33,8 +32,7 @@ function Menu(){
                     </Bar>
                 </Link>
                 <Link to="/historico"><p>Histórico</p></Link>
-            </Content>
-        
+            </Content>        
         </>
     )
 }
@@ -62,9 +60,7 @@ const Content = styled.div`
         line-height: 22px;
         text-align: center;
         color: #52B6FF;
-
     }
-
 `
 
 const Bar = styled.div`

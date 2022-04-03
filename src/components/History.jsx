@@ -3,22 +3,16 @@ import 'react-circular-progressbar/dist/styles.css';
 import Header from "./Header";
 import Menu from "./Menu";
 
-function History(){
-
-
-    
+function History(){    
     return( <>
         <Main >
-            <Header />
-           
+            <Header />           
             <Title >
                 <p>Histórico</p>
             </Title >
             <Subtitle>
                 Em breve você poderá ver o histórico dos seus hábitos aqui!
-            </Subtitle>
-           
-                 
+            </Subtitle>                          
         </Main>
         <Menu /> 
         </>
@@ -32,12 +26,8 @@ const Main = styled.div`
     width: 100vw;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-   
+    flex-direction: column;   
 `
-
-
-
 const Title = styled.div`
     margin-top:95px;
     width: 100vw;

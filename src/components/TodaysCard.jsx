@@ -55,9 +55,7 @@ function TodaysCard(props){
             </div>            
             <Icone onClick={() => SubmitHabitDone()} done={done} ><BsCheckSquareFill/></Icone>
        </Content>
-
     )
-
 }
 
 export default TodaysCard;
@@ -71,10 +69,8 @@ const Content = styled.div`
     padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-   
+    justify-content: space-between;   
 `
-
 const HabitName = styled.p`
     font-family: 'Lexend Deca';
     font-style: normal;
@@ -83,13 +79,11 @@ const HabitName = styled.p`
     line-height: 25px;
     color: #666666;
 `
-
 const Icone = styled.div`
     color:${props => props.done? "#8FC549":"#EBEBEB"};
     font-size: 70px;
     display: flex;
-    justify-content: center;
-    
+    justify-content: center;    
 `
 const DaysSequecies = styled.div`
     font-family: 'Lexend Deca';
@@ -99,8 +93,6 @@ const DaysSequecies = styled.div`
     line-height: 16px;
     color: #666666;
 `
-
 const Sequencie = styled.span`
-color:${props => props.done? "#8FC549":"#666666"};
-    
+color:${props => props.done? "#8FC549":"#666666"};    
 `

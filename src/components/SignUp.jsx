@@ -8,9 +8,7 @@ import {ThreeDots} from 'react-loader-spinner'
 import UserDataContext from "../context/UserDataContext";
 
 
-function SignUp(){
-
- 
+function SignUp(){ 
     const [isLoading, setisLoading] = useState(false)
     const{userData, setUserData} = useContext(UserDataContext)
 
@@ -72,8 +70,7 @@ function SignUp(){
                     <input type="text" id="name"  value={userData.name} required onChange={e =>setUserData({ ...userData, name: e.target.value})} placeholder="nome"></input>
                     <input type="url" id="image"  value={userData.image} required onChange={e =>setUserData({...userData, image: e.target.value})}  placeholder="foto"></input>
                     <button>Cadastrar</button>
-                </Form>}
-                
+                </Form>}                
             <Link to="/"><Enter>Já tem uma conta? Faça login!</Enter></Link>
         </Content>
     )
@@ -90,14 +87,12 @@ const LogoImage = styled.img`
     width:180px;
     margin-bottom:20px;
 `
-
 const Content = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 `
-
 const Form = styled.form`
     margin-top: 33px;
     display: flex;
@@ -118,7 +113,7 @@ const Form = styled.form`
         padding: 10px;
         ::placeholder {color:#DBDBDB};
     }
-   
+
     button{
         border: none;
         width: 303px;
@@ -134,8 +129,7 @@ const Form = styled.form`
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    
+    }    
 `
 
 const Input = styled.input`
@@ -155,11 +149,10 @@ const Input = styled.input`
     ::placeholder {
         color: ${props => props.disabled ? "#AFAFAF":"#DBDBDB"}
     }
-
 `
 
 const Button = styled.button`
-    border: none;
+        border: none;
         width: 303px;
         height: 45px;
         background: #52B6FF;
@@ -174,8 +167,7 @@ const Button = styled.button`
         justify-content: center;
         align-items: center;
         opacity:${props => props.disabled ? "0.5" : ""};  
-`        
-
+`   
 const Enter = styled.p`
     margin-top:25px;
     font-style: normal;

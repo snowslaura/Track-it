@@ -5,8 +5,6 @@ import { useContext } from "react";
 
 import UserDataContext from "../context/UserDataContext";
 
-
-
 const daysArray = [
     { id:0, name:"D" },
     { id:1, name:"S" },
@@ -16,8 +14,6 @@ const daysArray = [
     { id:5, name:"S" },
     { id:6, name:"S" }
 ]
-
-
 
 function HabitCard(props){
     
@@ -38,7 +34,6 @@ function HabitCard(props){
         const promise = axios.delete(`${process.env.REACT_APP_API_URL}/habits/${id}`, config)
         promise.then((response)=>{fetchHabits()})
         promise.catch(e => console.log(e))
-
     }
 
     return(
@@ -73,14 +68,12 @@ const Content = styled.div`
     margin-top: 8px;
     padding: 10px;
 `
-
 const Top = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 `
-
 const Description = styled.p`
     font-family: 'Lexend Deca';
     font-style: normal;
@@ -91,15 +84,12 @@ const Description = styled.p`
     width: 90%;
     word-wrap: break-word;
 `
-
-
 const Days = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
 `
-
 const SpanDay = styled.span`
     margin-top: 8px;
     width: 30px;
@@ -117,6 +107,5 @@ const SpanDay = styled.span`
     font-size: 19.976px;
     line-height: 25px;
     color: ${ props => props.color ? "#DBDBDB" : "#FFF"};
-    background-color: ${ props => props.color ? "#FFF" : "#CFCFCF"};
-    
+    background-color: ${ props => props.color ? "#FFF" : "#CFCFCF"};    
 `

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
-function Header(){
-    
+function Header(){    
     const userData = localStorage.getItem("userData")
     const unserializedData = JSON.parse(userData)
     const src = unserializedData.image
@@ -30,7 +29,6 @@ const Top = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     padding: 18px;
 `
-
 const LogoWritten = styled.p`
     font-family: 'Playball';
     font-style: normal;
@@ -39,8 +37,6 @@ const LogoWritten = styled.p`
     line-height: 49px;
     color: #FFFFFF;
 `
-
-
 const ProfileImage = styled.img`
     width: 51px;
     height: 51px;

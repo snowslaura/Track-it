@@ -40,9 +40,7 @@ function Login(){
             setisLoading(false)
             setUserData({...userData,email:"", password:"" , name:"", image:"" , token:""})
             alert("Login ou senha inválidos")
-        })
-            
-
+        })          
     }
 
     return(
@@ -85,14 +83,12 @@ const LogoImage = styled.img`
     width:180px;
     margin-bottom:20px;
 `
-
 const Content = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 `
-
 const Input = styled.input`
     border: 1px solid #D5D5D5;
     border-radius: 5px;
@@ -112,7 +108,6 @@ const Input = styled.input`
     }
 
 `
-
 const Form = styled.form`
     margin-top: 33px;
     display: flex;
@@ -149,14 +144,10 @@ const Form = styled.form`
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    
+    }    
 `
-
-
-
 const Button = styled.button`
-    border: none;
+        border: none;
         width: 303px;
         height: 45px;
         background: #52B6FF;
