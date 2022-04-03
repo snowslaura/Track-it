@@ -12,12 +12,14 @@ import History from "./History"
 import isLoadingContext from "../context/IsLoadingContext";
 import UserDataContext from "../context/UserDataContext";
 import UserHabitsContext from "../context/UserHabitsContext";
+import PercentageContext from "../context/PercentageContext";
 
 function App(){
 
     const [isLoading, setisLoading] = useState(false);
     const [userData, setUserData] = useState({ email:"", password:"" , name:"", image:"" , token:""})
     const [userHabits, setUserHabits] = useState([])
+    const [percentage, setPercentage] = useState(0);
    
 
     return(
@@ -25,14 +27,16 @@ function App(){
             <isLoadingContext.Provider value={{isLoading, setisLoading}} >
             <UserDataContext.Provider value={{userData, setUserData}}>
                 <UserHabitsContext.Provider value={{userHabits, setUserHabits}}>
-                    <GlobalStyleComponent />
-                    <Routes>
-                        <Route path="/" element={<Login />} />
-                        <Route path="/cadastro" element={<SignUp />} />
-                        <Route path="/habitos" element={<Habits />} />
-                        <Route path="/hoje" element={<Today />} />
-                        <Route path="/historico" element={<History />} />
-                    </Routes>
+                    <PercentageContext.Provider value={{percentage, setPercentage}}>
+                        <GlobalStyleComponent />
+                        <Routes>
+                            <Route path="/" element={<Login />} />
+                            <Route path="/cadastro" element={<SignUp />} />
+                            <Route path="/habitos" element={<Habits />} />
+                            <Route path="/hoje" element={<Today />} />
+                            <Route path="/historico" element={<History />} />
+                        </Routes>
+                    </PercentageContext.Provider>
                 </UserHabitsContext.Provider>    
             </UserDataContext.Provider>        
             </isLoadingContext.Provider>    

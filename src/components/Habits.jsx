@@ -165,8 +165,8 @@ function Habits(){
                 )
             })
             }
-            <Menu />
         </Main>
+        <Menu />
         </>
     )
 }
@@ -180,6 +180,7 @@ const Main = styled.div`
     align-items: center;
     width: 100vw;
     height: 100vh;
+    overflow-y: scroll;
 `
 const MyHabitsBar = styled.div`
     margin-top: 71px;
