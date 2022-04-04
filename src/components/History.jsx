@@ -1,18 +1,39 @@
 import styled from "styled-components"
 import 'react-circular-progressbar/dist/styles.css';
+import Calendar from 'react-calendar';
+import { useState } from "react";
+
+
 import Header from "./Header";
 import Menu from "./Menu";
+import "./../assets/css/calendar.css"
 
-function History(){    
+
+function History(){   
+
+    function tileClassName({ date, view }) {
+        
+        // if (view === 'month') {
+        //   // Check if a date React-Calendar wants to check is on the list of dates to add class to
+        //   if (datesToAddClassTo.find(dDate => isSameDay(dDate, date))) {
+        //     return 'myClassName';
+        //   }
+        // }
+    }
+
     return( <>
         <Main >
             <Header />           
             <Title >
                 <p>Histórico</p>
             </Title >
-            <Subtitle>
+            {/* <Subtitle>
                 Em breve você poderá ver o histórico dos seus hábitos aqui!
-            </Subtitle>                          
+            </Subtitle>  */}
+             <Calendar              
+             calendarType="US" 
+             locale="pt-br"/>  
+             tileClassName={tileClassName}                  
         </Main>
         <Menu /> 
         </>
@@ -27,6 +48,7 @@ const Main = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;   
+    align-items: center;
 `
 const Title = styled.div`
     margin-top:95px;

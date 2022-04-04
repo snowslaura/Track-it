@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import {BsTrash} from "react-icons/bs";
 import axios from "axios"
-import { useContext } from "react";
-
-import UserDataContext from "../context/UserDataContext";
 
 const daysArray = [
     { id:0, name:"D" },
@@ -19,7 +16,9 @@ function HabitCard(props){
     
     const {name, days, id , fetchHabits} = props
 
-    const {userData} = useContext(UserDataContext)
+    const userDataLocalStorage = localStorage.getItem("userData")
+    const unserializedData = JSON.parse(userDataLocalStorage)
+    const tokenStorage = unserializedData.token
 
     function handleDelet(){
 
@@ -27,7 +26,7 @@ function HabitCard(props){
 
         const config = {
             headers: {
-                "Authorization": `Bearer ${userData.token}`
+                "Authorization": `Bearer ${tokenStorage}`
             }
         }
 

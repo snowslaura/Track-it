@@ -7,7 +7,6 @@ import Header from "./Header"
 import Menu from "./Menu";
 import HabitCard from "./HabitCard"; 
 
-import UserDataContext from "../context/UserDataContext";
 import UserHabitsContext from "../context/UserHabitsContext"
 
 function Habits(){
@@ -18,7 +17,6 @@ function Habits(){
     const [isLoading, setisLoading] = useState(false)
     
     
-    const {userData} = useContext(UserDataContext)
     const {userHabits, setUserHabits} = useContext(UserHabitsContext)
 
     const userDataLocalStorage = localStorage.getItem("userData")
@@ -72,6 +70,7 @@ function Habits(){
 
         if(howOften.length<1){
         alert("Escolha ao menos um dia da semana para seu hábito")
+        setisLoading(false)
         return
         }
         
@@ -84,7 +83,7 @@ function Habits(){
 
         const config = {
             headers: {
-                "Authorization": `Bearer ${userData.token}`
+                "Authorization": `Bearer ${tokenStorage}`
             }
         }
 

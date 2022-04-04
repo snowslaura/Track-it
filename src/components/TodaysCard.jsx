@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import {BsCheckSquareFill} from "react-icons/bs"
 import axios from "axios";
-import {useContext} from "react"
-
-
-import UserDataContext from "../context/UserDataContext";
-
-
 
 function TodaysCard(props){
     const {
@@ -17,13 +11,16 @@ function TodaysCard(props){
         highestSequence,
         fetchTodaysHabits} = props
 
-    const {userData} = useContext(UserDataContext)  
+
+    const userDataLocalStorage = localStorage.getItem("userData")
+    const unserializedData = JSON.parse(userDataLocalStorage)
+    const tokenStorage = unserializedData.token
                
     function SubmitHabitDone(){       
 
         const config = {
             headers: {
-                "Authorization": `Bearer ${userData.token}`
+                "Authorization": `Bearer ${tokenStorage}`
             }
         }
         
