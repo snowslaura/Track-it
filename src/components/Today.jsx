@@ -43,9 +43,9 @@ function Today(){
         promise.catch ((e)=> console.log(e))
     } 
     dayjs.extend(updateLocale)
-        dayjs.updateLocale('pt-br', {
-            weekdays: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-        })
+    dayjs.updateLocale('pt-br', {
+        weekdays: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+    })
     
     
     return(

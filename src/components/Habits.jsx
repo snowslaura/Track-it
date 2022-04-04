@@ -34,6 +34,7 @@ function Habits(){
         const promise = axios.get(`${process.env.REACT_APP_API_URL}/habits`, config)
         promise.then(({data})=>{
         setUserHabits(data)
+        console.log(data)
         })
 
         promise.catch( (e)=> console.log(e))
@@ -96,7 +97,7 @@ function Habits(){
             setButtonNewHabit(false)
             setisLoading(false)
             fetchHabits()
-            
+                        
         })
 
         promise.catch( e => {
@@ -158,10 +159,12 @@ function Habits(){
             <NoHabit>
                 <p>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</p>
             </NoHabit>:
-            userHabits.map((habit) =>{
-                return( <HabitCard fetchHabits={fetchHabits} key={habit.id} id={habit.id} name={habit.name} days={habit.days}/>
-                )
-            })
+            <HabitConteiner>
+                {userHabits.map((habit) =>{
+                    return( <HabitCard fetchHabits={fetchHabits} key={habit.id} id={habit.id} name={habit.name} days={habit.days}/>
+                    )
+                })}
+            </HabitConteiner>
             }
         </Main>
         <Menu />
@@ -338,6 +341,11 @@ const NoHabit = styled.div`
     font-size: 17.976px;
     line-height: 22px;
     color: #666666;
+`
+
+const HabitConteiner = styled.div`
+    height: 700px;
+    overflow-y: scroll;
 `
 
 
