@@ -344,8 +344,8 @@ const NoHabit = styled.div`
 `
 
 const HabitConteiner = styled.div`
-    height: 700px;
     overflow-y: scroll;
+    margin-bottom: 73px;
 `
 
 

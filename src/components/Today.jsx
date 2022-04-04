@@ -127,6 +127,8 @@ const Habits = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 73px;
+    overflow-y: scroll;
 `
 
 
