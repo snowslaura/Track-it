@@ -6,42 +6,22 @@ import 'dayjs/locale/pt-br'
 import updateLocale from 'dayjs/plugin/updateLocale'
 
 import styled from "styled-components";
-import { useContext, useEffect , useState } from "react";
-import axios from "axios"
+import { useContext } from "react";
 
 import PercentageContext from "../context/PercentageContext";
+import TodaysHabitsContext from "../context/TodaysHabitsContext";
+import HabitsStatusContext from "../context/HabitsStatusContext";
 
-function Today(){
+function Today(props){
 
-    const [todaysHabits, setTodaysHabits] = useState([])
-    const [HabitsStatus, setHabitsStatus] = useState([])
+    const {fetchTodaysHabits} = props
+    
+    const {percentage} = useContext(PercentageContext)
+    const {todaysHabits} = useContext(TodaysHabitsContext)
+    const {HabitsStatus} = useContext(HabitsStatusContext)
 
-    const {percentage, setPercentage} = useContext(PercentageContext)
+   
 
-    const userDataLocalStorage = localStorage.getItem("userData")
-    const unserializedData = JSON.parse(userDataLocalStorage)
-    const tokenStorage = unserializedData.token
-
-    useEffect(() => fetchTodaysHabits(), [])    
-
-    function fetchTodaysHabits(){
-        const config = {
-            headers: {
-                "Authorization": `Bearer ${tokenStorage}`
-            }
-        }
-
-        const promise = axios.get(`${process.env.REACT_APP_API_URL}/habits/today`, config)
-        promise.then( ({data}) =>{
-            const selectStatus = data.map((habit) => habit.done)
-            const done = selectStatus.filter((status) => status === true)
-            const ActualPercentage = ((done.length/(selectStatus.length || 1))*100).toFixed(0)
-            setTodaysHabits(data)
-            setHabitsStatus(selectStatus)        
-            setPercentage(ActualPercentage)
-        })
-        promise.catch ((e)=> console.log(e))
-    } 
     dayjs.extend(updateLocale)
     dayjs.updateLocale('pt-br', {
         weekdays: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]

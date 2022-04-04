@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios"
 
 import  GlobalStyleComponent  from "./global.css";
 import "./../assets/css/reset.css"
@@ -14,12 +15,42 @@ import UserDataContext from "../context/UserDataContext";
 import UserHabitsContext from "../context/UserHabitsContext";
 import PercentageContext from "../context/PercentageContext";
 
+import TodaysHabitsContext from "../context/TodaysHabitsContext";
+import HabitsStatusContext from "../context/HabitsStatusContext";
+
 function App(){
 
     const [isLoading, setisLoading] = useState(false);
     const [userData, setUserData] = useState({ email:"", password:"" , name:"", image:"" , token:""})
     const [userHabits, setUserHabits] = useState([])
     const [percentage, setPercentage] = useState(0);
+    const [todaysHabits, setTodaysHabits] = useState([])
+    const [HabitsStatus, setHabitsStatus] = useState([])
+
+    const userDataLocalStorage = localStorage.getItem("userData")
+    const unserializedData = JSON.parse(userDataLocalStorage)
+    const tokenStorage = unserializedData.token
+
+    useEffect(() => fetchTodaysHabits(), [])    
+
+    function fetchTodaysHabits(){
+        const config = {
+            headers: {
+                "Authorization": `Bearer ${tokenStorage}`
+            }
+        }
+
+        const promise = axios.get(`${process.env.REACT_APP_API_URL}/habits/today`, config)
+        promise.then( ({data}) =>{
+            const selectStatus = data.map((habit) => habit.done)
+            const done = selectStatus.filter((status) => status === true)
+            const ActualPercentage = ((done.length/(selectStatus.length || 1))*100).toFixed(0)
+            setTodaysHabits(data)
+            setHabitsStatus(selectStatus)        
+            setPercentage(ActualPercentage)
+        })
+        promise.catch ((e)=> console.log(e))
+    } 
    
 
     return(
@@ -28,14 +59,18 @@ function App(){
                 <UserDataContext.Provider value={{userData, setUserData}}>
                     <UserHabitsContext.Provider value={{userHabits, setUserHabits}}>
                         <PercentageContext.Provider value={{percentage, setPercentage}}>
-                            <GlobalStyleComponent />
-                            <Routes>
-                                <Route path="/" element={<Login />} />
-                                <Route path="/cadastro" element={<SignUp />} />
-                                <Route path="/habitos" element={<Habits />} />
-                                <Route path="/hoje" element={<Today />} />
-                                <Route path="/historico" element={<History />} />
-                            </Routes>
+                            <TodaysHabitsContext.Provider value={{todaysHabits, setTodaysHabits}}>
+                                <HabitsStatusContext.Provider value={{HabitsStatus, setHabitsStatus}}>
+                                    <GlobalStyleComponent />
+                                        <Routes>
+                                            <Route path="/" element={<Login />} />
+                                            <Route path="/cadastro" element={<SignUp />} />
+                                            <Route path="/habitos" element={<Habits fetchTodaysHabits={fetchTodaysHabits} />} />
+                                            <Route path="/hoje" element={<Today fetchTodaysHabits={fetchTodaysHabits} />} />
+                                            <Route path="/historico" element={<History />} />
+                                        </Routes>
+                                    </HabitsStatusContext.Provider>
+                            </TodaysHabitsContext.Provider>
                         </PercentageContext.Provider>
                     </UserHabitsContext.Provider>    
                 </UserDataContext.Provider>        

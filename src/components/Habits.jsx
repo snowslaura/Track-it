@@ -9,7 +9,9 @@ import HabitCard from "./HabitCard";
 
 import UserHabitsContext from "../context/UserHabitsContext"
 
-function Habits(){
+function Habits(props){
+
+    const {fetchTodaysHabits} = props
 
     const[buttonNewHabit, setButtonNewHabit] = useState(false);
     const [habit, setHabit] = useState("");
@@ -34,7 +36,7 @@ function Habits(){
         const promise = axios.get(`${process.env.REACT_APP_API_URL}/habits`, config)
         promise.then(({data})=>{
         setUserHabits(data)
-        console.log(data)
+        fetchTodaysHabits()
         })
 
         promise.catch( (e)=> console.log(e))

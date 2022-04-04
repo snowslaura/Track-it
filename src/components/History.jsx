@@ -32,8 +32,10 @@ function History(){
             </Subtitle>  */}
              <Calendar              
              calendarType="US" 
-             locale="pt-br"/>  
-             tileClassName={tileClassName}                  
+             locale="pt-br"
+             tileClassName={tileClassName}  
+             />  
+                             
         </Main>
         <Menu /> 
         </>
