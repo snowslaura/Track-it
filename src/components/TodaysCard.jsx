@@ -11,6 +11,7 @@ function TodaysCard(props){
         highestSequence,
         fetchTodaysHabits} = props
 
+    
 
     const userDataLocalStorage = localStorage.getItem("userData")
     const unserializedData = JSON.parse(userDataLocalStorage)

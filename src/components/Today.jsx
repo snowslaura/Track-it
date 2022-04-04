@@ -6,7 +6,7 @@ import 'dayjs/locale/pt-br'
 import updateLocale from 'dayjs/plugin/updateLocale'
 
 import styled from "styled-components";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import PercentageContext from "../context/PercentageContext";
 import TodaysHabitsContext from "../context/TodaysHabitsContext";
@@ -26,6 +26,8 @@ function Today(props){
     dayjs.updateLocale('pt-br', {
         weekdays: ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
     })
+
+    useEffect(() => fetchTodaysHabits() ,[])
     
     
     return(
@@ -107,7 +109,7 @@ const Habits = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 73px;
+    margin-bottom: 105px;
     overflow-y: scroll;
 `
 
