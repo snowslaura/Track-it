@@ -29,7 +29,7 @@ function App(){
 
     const userDataLocalStorage = localStorage.getItem("userData")
     const unserializedData = JSON.parse(userDataLocalStorage)
-    const tokenStorage = unserializedData.token
+    const tokenStorage = unserializedData?.token
 
     useEffect(() => fetchTodaysHabits(), [])    
 
