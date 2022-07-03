@@ -9,12 +9,16 @@ The feature 'today' shows you the habits you have to accomplish the current day.
 The feature 'habits' is where you can create, edit or delete a habit.</br>
 Once you create a habit for the current date or mark as done a habit you have accomplished during the current day, the percentage changes proportinally.</br>
 
+```Highlights: ContextAPI, react-loader-spinner, dayjs, LocalStorage, useState```
+
 <h3>Português</h3>
 <b>Um aplicativo para rastrear os seus hábitos</b></br>
 Você pode se cadastrar, fazer login e abrir a página principal com os recursos: 'hoje' (com a porcentagem de hábitos realizados) e 'hábitos'.</br>
 O recurso 'hoje' mostra os hábitos que você tem para realizar no dia atual.</br>
 O recurso 'hábitos' é onde você pode criar, editar ou excluir um hábito.</br>
 Depois de criar um hábito para a data atual ou marcar como feito um hábito que você realizou durante o dia atual, a porcentagem muda proporcionalmente.</br>
+
+`Destaques: ContextAPI, react-loader-spinner, dayjs, LocalStorage, useState`
 
 
 
