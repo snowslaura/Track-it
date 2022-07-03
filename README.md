@@ -25,8 +25,7 @@ Depois de criar um hábito para a data atual ou marcar como feito um hábito que
     <img align="center" alt="Laura-HTML" height="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
     <img align="center" alt="Laura-CSS" height="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">  
     <img  align="center" alt="Laura-npm" height="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" />
-    <img align="center" alt="Laura-ES6"  height="60" src="https://live.staticflickr.com/7306/16407404782_8b9c57eab3_w.jpg">
-    <img align="center" alt="Laura-webpack"  height="60"src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg">
+    <img align="center" alt="Laura-ES6"  height="60" src="https://live.staticflickr.com/7306/16407404782_8b9c57eab3_w.jpg">    
     <img align="center" alt="Laura-github"  height="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain-wordmark.svg">
 </div>
 <br />
