@@ -1,8 +1,37 @@
+<h1>This is Track it!  /  Este é Track it!</h1>
 
 ![trackit](https://user-images.githubusercontent.com/92411912/177019895-fb7634c2-f4ab-404b-817f-cfbc69060301.gif)
 
+<h3>English</h3>
+<b>This is a habbit tracker application.</b></br>
+You are able to register, sign in and open the main page with the features: 'today' (with the percentage of done habits) and 'habits'.</br>
+The feature 'today' shows you the habits you have to accomplish the current day.</br>
+The feature 'habits' is where you can create, edit or delete a habit.</br>
+Once you create a habit for the current date or mark as done a habit you have accomplished during the current day, the percentage changes proportinally.</br>
 
-# Getting Started with Create React App
+<h3>Português</h3>
+<b>Um aplicativo para rastrear os seus hábitos</b></br>
+Você pode se cadastrar, fazer login e abrir a página principal com os recursos: 'hoje' (com a porcentagem de hábitos realizados) e 'hábitos'.</br>
+O recurso 'hoje' mostra os hábitos que você tem para realizar no dia atual.</br>
+O recurso 'hábitos' é onde você pode criar, editar ou excluir um hábito.</br>
+Depois de criar um hábito para a data atual ou marcar como feito um hábito que você realizou durante o dia atual, a porcentagem muda proporcionalmente.</br>
+
+
+
+<div align="center"><b><h3>Stack</h3></b></div>
+<div style="display: inline_block" align="center"><br>
+    <img align="center" alt="Laura-Js" height="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+    <img align="center" alt="Laura-React" height="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg">
+    <img align="center" alt="Laura-HTML" height="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+    <img align="center" alt="Laura-CSS" height="60" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">  
+    <img  align="center" alt="Laura-npm" height="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" />
+    <img align="center" alt="Laura-ES6"  height="60" src="https://live.staticflickr.com/7306/16407404782_8b9c57eab3_w.jpg">
+    <img align="center" alt="Laura-webpack"  height="60"src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg">
+    <img align="center" alt="Laura-github"  height="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-plain-wordmark.svg">
+</div>
+<br />
+
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -72,3 +101,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ -->
